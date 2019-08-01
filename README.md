@@ -1,8 +1,8 @@
 # MatrixVoice PlatformIO
 
-The current project show how build and upload any firmware for [MatrixVoice ESP32 board](https://www.matrix.one/products/voice) using [PlatformIO](https://platformio.org/) OTA or `Arduino OTA`. 
+The current project show how build and upload any firmware for [MatrixVoice ESP32 board](https://www.matrix.one/products/voice) using [PlatformIO](https://platformio.org/)
 
-**note**: The next documentation is based on [Program Over the Air on ESP32 MATRIX Voice](https://www.hackster.io/matrix-labs/program-over-the-air-on-esp32-matrix-voice-5e76bb) documentation but it using PlatformIO instead Arduino IDE. You dont need IDF toolchain or any library, PlatformIO do it for you.
+**note**: The next documentation is based on [Program Over the Air on ESP32 MATRIX Voice](https://www.hackster.io/matrix-labs/program-over-the-air-on-esp32-matrix-voice-5e76bb) documentation but it using PlatformIO instead Arduino IDE. ***You dont need IDF toolchain or any library***, PlatformIO do it for you.
 
 
 ## Prerequisites
@@ -15,7 +15,7 @@ Please install first [PlatformIO](http://platformio.org/) open source ecosystem 
 
 ### MatrixVoice software
 
-For get OTA updates without RaspberryPi, first you should have a one RaspberryPi with `MatrixVoice` software. Please run into your RaspberryPi shell or ssh:
+For get updates without RaspberryPi, first you should have a one RaspberryPi with `MatrixVoice` software. Please run into your RaspberryPi shell or ssh:
 
 ##### add debian repository key:
 
@@ -48,7 +48,7 @@ voice_esp32_enable
 Return to your PC and clone this repository:
 
 ```bash
-git clone https://github.com/hpsaturn/matrixvoice_platformio.git
+git clone https://github.com/alexiscruzdavid/matrixvoice_platformio.git
 cd matrixvoice_platformio
 ```
 Copy `platformio.ini` sample and change your network parameters:
@@ -59,8 +59,10 @@ cp platformio.ini.sample platformio.ini
 
 ```python
 '-DWIFI_SSID="MyWifiSsid"'       
-'-DWIFI_PASS="MyWifiPassw"'      
+'-DWIFI_PASS="MyWifiPassw"'    
 ```
+### Note OTA is not supported by our boards as of yet; to upload new programs you will have to reset the esp32 and flash the firmware.bin through the pi
+
 ##### Building initial firmware
 ```bash
 pio run
